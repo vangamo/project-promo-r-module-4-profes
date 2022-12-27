@@ -18,6 +18,8 @@ const db = new Database('./src/db/cards.db', {
   verbose: console.log,
 });
 
+console.log(process.env);
+
 // Arrancamos el servidor en el puerto 3000
 const serverPort = 4000;
 server.listen(serverPort, () => {
