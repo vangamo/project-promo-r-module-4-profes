@@ -18,10 +18,10 @@ const db = new Database('./src/db/cards.db', {
   verbose: console.log,
 });
 
-console.log(process.env);
+// Arrancamos el servidor en el puerto que sea y si no está especificado, entonces el 4000
 
-// Arrancamos el servidor en el puerto 3000
-const serverPort = 4000;
+const serverPort = process.env.PORT || 4000;
+
 server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
@@ -63,7 +63,7 @@ server.post('/card', (req, res) => {
 
     //respuesta si todo va bien
     const responseSuccess = {
-      cardURL: `http://localhost:4000/card/${result.lastInsertRowid}`, //
+      cardURL: `https://project-promo-r-module-4-profes-production.up.railway.app/card/${result.lastInsertRowid}`, //
       success: true,
     };
     res.json(responseSuccess);
